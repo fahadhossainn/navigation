@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-family: "PT Sans", sans-serif;
+  font-size: 72%; }
+
+body {
+  box-sizing: border-box;
+  background-color: #e9ecef; }
+
+.navigation__checkbox {
+  display: none; }
+
+.navigation__button {
+  position: fixed;
+  top: 3rem;
+  right: 3rem;
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  text-align: center;
+  box-shadow: 0 1.2rem 1.8rem rgba(73, 80, 87, 0.2);
+  cursor: pointer;
+  z-index: 1000; }
+
+.navigation__overlay {
+  position: fixed;
+  top: 3.1rem;
+  right: 3.1rem;
+  width: 2.9rem;
+  height: 2.9rem;
+  border-radius: 50%;
+  background-image: linear-gradient(to left bottom, #38d9a9, #0ca678);
+  transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+  z-index: 100; }
+
+.navigation__navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 0;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 500; }
+
+.navigation__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  list-style: none; }
+
+.navigation__item {
+  margin: 0.4rem; }
+
+.navigation__link:link, .navigation__link:visited {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-decoration: none;
+  padding: 0.6rem 2.3rem;
+  color: #495057;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #ffa94d 50%);
+  background-size: 250%;
+  transition: all 0.36s; }
+
+.navigation__link:hover, .navigation__link:active {
+  background-position: 100%;
+  color: #f8f9fa;
+  transform: translateX(0.6rem); }
+
+.navigation__icon {
+  position: relative;
+  top: 1.5rem; }
+  .navigation__icon, .navigation__icon::before, .navigation__icon::after {
+    width: 1.7rem;
+    height: 2px;
+    background-color: #f76707;
+    display: inline-block; }
+  .navigation__icon::before, .navigation__icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all 0.2s; }
+  .navigation__icon::before {
+    top: -0.5rem; }
+  .navigation__icon::after {
+    top: 0.5rem; }
+
+.navigation__checkbox:checked ~ .navigation__overlay {
+  transform: scale(100); }
+
+.navigation__checkbox:checked ~ .navigation__navbar {
+  opacity: 1;
+  width: 100%; }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background: transparent; }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotate(45deg); }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-45deg); }
